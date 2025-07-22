@@ -2,7 +2,8 @@ import random
 import re
 
 try:
-    escolha = int(input("1. Calculadora Básica" +
+    escolha = int(input("--------- Menu ---------" +
+                        "\n1. Calculadora Básica" +
                         "\n2. Maior e Menor entre Três Números" +
                         "\n3. Área de Formas Geométricas" +
                         "\n4. Jogo da Adivinhação" +
@@ -169,7 +170,62 @@ try:
 
     elif escolha == 6:
         #6. Lista de Tarefas:
-        ...
+        
+        print("\nLista de Tarefas\n")
+
+        tarefas = []
+
+        while True:
+
+            opcao = int(input("\n1. Adicionar" +
+                            "\n2. Remover" +
+                            "\n3. Visualizar tarefas" +
+                            "\n4. Sair" +
+                            "\nInforme a opção desejada: "))
+
+            if opcao == 1:
+                
+                tarefa = input("\nAdicione uma nova tarefa: ")
+                tarefas.append(tarefa)
+                print("Tarefa adicionada com sucesso!\n")
+            
+            elif opcao == 2:
+                
+                if len(tarefas) == 0:
+                    print("Não há terefas a serem listadas!\n")
+
+                else:
+                    # enumerate -> Percorre uma lista e acessa o índice de cada posição
+                    for i, tarefa in enumerate(tarefas):
+                        print(f"{i + 1} . {tarefa}")
+
+                    indice = int(input("\nDigite o número da tarefa que deseja excluir: ")) - 1
+
+                    if 0 <= indice < len(tarefas):
+                        remover = tarefas.pop(indice)
+
+                        print(f"Tarefa {remover} removida com sucesso!")
+
+                    else:
+                        print("Número da tarefa inválido!")
+
+            elif opcao == 3:
+                
+                if len(tarefas) == 0:
+                    print("Não há terefas a serem listadas!\n")
+
+                else:
+                    print("\n--- Tarefas ---")
+                    for i, tarefa in enumerate(tarefas):
+                        print(f"{i + 1}. {tarefa}")
+            
+            elif opcao == 4:
+                
+                print("Saindo..")
+                break
+
+            else:
+                print("Opção inválida! Tente novamente.")
 
     elif escolha == 7:
         #7. Manipulação e Comunicação de Objetos
