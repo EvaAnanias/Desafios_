@@ -121,7 +121,6 @@ try:
 
         print("\nJogo da Adivinhação\n")
 
-
         numero = random.randint(1, 100)
         tentativas = 1
         resposta = True
@@ -175,8 +174,19 @@ try:
 
         tarefas = []
 
-        while True:
+        def exibir_tarefas():
 
+            if len(tarefas) == 0:
+                    print("Não há terefas a serem listadas!\n")
+                    return
+
+            else:
+                # enumerate -> Percorre uma lista e acessa o índice de cada posição
+                for i, tarefa in enumerate(tarefas):
+                    print(f"{i + 1} . {tarefa}")
+
+
+        while True:
             opcao = int(input("\n1. Adicionar" +
                             "\n2. Remover" +
                             "\n3. Visualizar tarefas" +
@@ -195,9 +205,8 @@ try:
                     print("Não há terefas a serem listadas!\n")
 
                 else:
-                    # enumerate -> Percorre uma lista e acessa o índice de cada posição
-                    for i, tarefa in enumerate(tarefas):
-                        print(f"{i + 1} . {tarefa}")
+                   
+                   exibir_tarefas()
 
                     indice = int(input("\nDigite o número da tarefa que deseja excluir: ")) - 1
 
